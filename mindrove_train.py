@@ -9,8 +9,11 @@ from tensorflow.keras.layers import Dense
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Modules
-from modules.DataGenerator import DataGenerator
-from modules.AtzoriNet import AtzoriNet
+#from modules.DataGenerator import DataGenerator
+#from modules.AtzoriNet import AtzoriNet
+
+from DataGenerator import DataGenerator
+from AtzoriNet import AtzoriNet
 
 import tensorflow as tf
 from tensorflow.keras.models import Model
