@@ -38,10 +38,6 @@ def load_my_data(base_path):
                 mat_data = scipy.io.loadmat(file_path)
                 
                 emg_signal = mat_data.get('emg') 
-                if emg_signal is None:
-                    keys = [k for k in mat_data.keys() if not k.startswith('__')]
-                    emg_signal = mat_data[keys[0]]
-
                 label = int(np.median(mat_data['stimulus'])) if 'stimulus' in mat_data else int(file.replace('gesture', '').replace('.mat', ''))
 
                 emg_signal = np.abs(emg_signal)
