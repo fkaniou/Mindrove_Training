@@ -7,8 +7,8 @@ import pandas as pd
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from naviflame.utils import FilterTypes, BiquadMultiChan
-from naviflame.record import record_ninapro_gestures
+from utils import FilterTypes, BiquadMultiChan
+from record import record_ninapro_gestures
 
 #This code is used for the recording of the gestures from the MindRove Armband
 #It will save the gestures of exercises A and B of NiNapro dataset (raw and preprocessed data)
