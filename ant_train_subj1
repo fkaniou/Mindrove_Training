@@ -1,0 +1,189 @@
+#Numerical Operations
+import numpy as np 
+from einops import rearrange 
+import os 
+import os.path as osp
+from scipy.io import loadmat
+from scipy.signal import butter, sosfiltfilt,iirnotch, tf2sos,sosfiltfilt
+import matplotlib as mpl
+import matplotlib.pyplot as plt 
+from sklearn.utils import shuffle
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.pipeline import make_pipeline
+from sklearn.svm import SVC
+
+#working directory
+w_dir = os.path.dirname(os.path.abspath(__file__))
+dataset_dir = osp.join(w_dir, '6_gest')
+
+#Train-validation-test split
+train_reps = [1,2,3,5,6,8,10]
+val_reps = [4,7]
+test_reps = [9]
+
+#Load files
+files = sorted(os.listdir(dataset_dir))
+#Path to a reference gesture
+ges_path = osp.join(dataset_dir,files[0],'raw','gesture25.mat')
+
+#Load .mat file in python 
+data  = loadmat(ges_path)
+print(data.keys())
+
+emg = rearrange(data['emg_raw'],'t c -> c t')
+print(emg.shape)
+
+#Sampling Frequency
+fs = 500
+Ts = 1/fs
+#t=nTs (time)
+t = np.arange(emg.shape[1])*Ts#Sampling Frequency
+fs = 500
+Ts = 1/fs
+#t=nTs (time)
+t = np.arange(emg.shape[1])*Ts
+
+#Second Order Sections for Numerical stability
+sos = butter(N=4,Wn=[4,200],btype='bandpass',fs=500,output='sos')
+emg_f = sosfiltfilt(sos,emg,axis=1)
+
+from scipy.fft import fft,fftfreq
+#Zero padding 2500 -> 4096
+N=4096
+#Analog Frequency that corresponds to each FFT coefficient 
+x_f = fftfreq(N,Ts)[:N//2]
+y_f = fft(emg_f,n=N,axis=1)[:,:N//2]
+
+#Notch Frequency
+f0 = 50
+#Quality Factor
+Q = 30.0 
+#Notch filter using sos represantion for numerical stability 
+b,a = iirnotch(f0,Q,fs=fs)
+sos_notch = tf2sos(b,a)
+
+emg_final = sosfiltfilt(sos_notch,emg_f,axis=1)
+print("EMG shape:", emg_final.shape)
+y_f2 = fft(emg_final,n=N,axis=1)[:,:N//2]
+
+from libemg.feature_extractor import FeatureExtractor
+from libemg.utils import get_windows
+
+fe = FeatureExtractor()
+#Window size
+WS = 50
+T_window = WS*Ts
+WI = 10
+#Window increment 
+print(f'Window Time {T_window*1000}ms')
+print(f'Overlap {(1-WI/WS)*100}%')
+#Apply windows to the middle 3s of the gesture
+windows = get_windows(emg_final[:,750:-750].T,WS,WI)
+
+print("Windows shape:", windows.shape)
+
+features = fe.extract_feature_group('HTD',windows)
+print("Feature keys:", list(features.keys()))
+
+x_train = []
+y_train = [] 
+x_val = []
+y_val = [] 
+x_test = [] 
+y_test = []
+
+#Iterate over file (each file includes sequential repetition of gestures)
+for f in files:
+    #Get the repetition number
+    rep = int(f.split('_')[1][3:])
+    print(f'Repetition: {rep}')
+    #Cycle Path
+    rep_path = osp.join(dataset_dir,f,'raw')
+    #List of different .mat files (Gestures) 
+    gestures = sorted(os.listdir(rep_path))
+    #Iterate over gestures
+    for ges_num,g in enumerate(gestures):
+        #Load the EMG data
+        emg = loadmat(osp.join(rep_path,g))['emg_raw']
+        
+        #Filtering (previously discussed in the notebook)
+        emg_f = sosfiltfilt(sos,emg,axis=0)
+        emg_fn = sosfiltfilt(sos_notch,emg_f,axis=0)
+        
+        #Keep only the intermediate 3 seconds
+        emg_fn = emg_fn[750:-750,:]
+        #Windows (100ms, 80% overlap
+        windows = get_windows(emg_fn,WS,WI)
+        
+        #Extract the THD features
+        feature_vector = []
+        emg_features = fe.extract_feature_group('HTD',windows)
+        for f_name in emg_features.keys():
+            feature_vector.append(emg_features[f_name])
+        feature_vector = np.array(feature_vector)
+
+        #Rearange from features x windows x channels to windows x (channels features)
+        #THD -> four features
+        feature_vector = rearrange(feature_vector,'f w c -> w (c f)')
+        n_samples,n_features = feature_vector.shape
+        print("TRAIN FV SHAPE:", feature_vector.shape)
+        print("TRAIN FV SAMPLE:", feature_vector[0])
+        print("TRAIN FV MEAN:", feature_vector.mean(), "STD:", feature_vector.std())
+
+        if rep in train_reps:
+            x_train.append(feature_vector)
+            y_train.append(np.repeat(ges_num,n_samples))
+        elif rep in val_reps:
+            x_val.append(feature_vector)
+            y_val.append(np.repeat(ges_num,n_samples))
+        else:
+            x_test.append(feature_vector)
+            y_test.append(np.repeat(ges_num,n_samples))
+                         
+x_train = np.concatenate(x_train)
+x_val = np.concatenate(x_val)
+x_test = np.concatenate(x_test)
+
+y_train = np.concatenate(y_train)
+y_val = np.concatenate(y_val)
+y_test = np.concatenate(y_test)
+
+print("X_train shape:", x_train.shape)
+print("X_val shape:", x_val.shape)
+print("X_test shape:", x_test.shape)
+
+x_train,y_train = shuffle(x_train,y_train,random_state=42)
+
+scaler = StandardScaler()
+pca = PCA(n_components=2) 
+
+scaler.fit(x_train)
+
+x_train_scaled = scaler.transform(x_train)
+
+pc = pca.fit_transform(x_train_scaled)
+
+classes = np.unique(y_train)
+print("Classes:", classes)
+
+clf = SVC()
+
+clf.fit(x_train_scaled,y_train)
+
+score = clf.score(x_train_scaled,y_train)
+print(f'Training Accuracy {score*100:.2f}%')
+
+x_val_scaled = scaler.transform(x_val)
+
+y_pred = clf.predict(x_val_scaled)
+
+from sklearn.metrics import accuracy_score
+score = accuracy_score(y_val, y_pred)
+print(f"Validation Accuracy: {score * 100:.2f}%")
+
+from sklearn.metrics import confusion_matrix,ConfusionMatrixDisplay
+disp = ConfusionMatrixDisplay.from_predictions(y_val,y_pred,cmap=plt.cm.Blues,normalize='true')
+plt.show()
+
+
