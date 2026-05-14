@@ -1,0 +1,41 @@
+Analysis for: SVM
+Subj 1 | Train: 88.5% | Val: 68.0% | Test: 71.5%
+Subj 2 | Train: 99.3% | Val: 82.0% | Test: 88.9%
+Subj 3 | Train: 97.3% | Val: 74.1% | Test: 74.8%
+Subj 4 | Train: 99.0% | Val: 94.0% | Test: 81.9%
+Subj 5 | Train: 98.6% | Val: 91.2% | Test: 86.1%
+Subj 6 | Train: 97.9% | Val: 70.5% | Test: 66.1%
+
+==============================
+Analysis for: kNN
+Subj 1 | Train: 100.0% | Val: 49.0% | Test: 50.2%
+Subj 2 | Train: 100.0% | Val: 48.8% | Test: 53.8%
+Subj 3 | Train: 100.0% | Val: 63.3% | Test: 57.6%
+Subj 4 | Train: 100.0% | Val: 86.8% | Test: 76.4%
+Subj 5 | Train: 100.0% | Val: 71.9% | Test: 63.2%
+Subj 6 | Train: 100.0% | Val: 53.5% | Test: 43.8%
+
+==============================
+Analysis for: RandomForest
+Subj 1 | Train: 100.0% | Val: 92.2% | Test: 89.4%
+Subj 2 | Train: 100.0% | Val: 87.2% | Test: 94.3%
+Subj 3 | Train: 100.0% | Val: 70.5% | Test: 68.8%
+Subj 4 | Train: 100.0% | Val: 89.8% | Test: 81.2%
+Subj 5 | Train: 100.0% | Val: 91.8% | Test: 90.1%
+Subj 6 | Train: 100.0% | Val: 68.3% | Test: 65.8%
+
+==============================
+Analysis for: LDA
+Subj 1 | Train: 89.8% | Val: 89.8% | Test: 88.5%
+Subj 2 | Train: 83.6% | Val: 80.0% | Test: 83.3%
+Subj 3 | Train: 80.4% | Val: 71.7% | Test: 68.4%
+Subj 4 | Train: 88.0% | Val: 86.3% | Test: 87.7%
+Subj 5 | Train: 85.5% | Val: 87.3% | Test: 77.3%
+Subj 6 | Train: 81.6% | Val: 69.8% | Test: 65.8%
+
+Model        | Train    | Val      | Test     | Best Params
+----------------------------------------------------------------------------------------------------
+SVM          |  96.78% |  79.98% |  78.24% | {'C': 50, 'gamma': 0.01, 'kernel': 'rbf'}
+kNN          | 100.00% |  62.21% |  57.49% | {'n_neighbors': 9, 'weights': 'distance'}
+RandomForest | 100.00% |  83.30% |  81.60% | {'max_depth': None, 'n_estimators': 100}
+LDA          |  84.82% |  80.83% |  78.50% | {}
