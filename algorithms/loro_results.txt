@@ -1,1 +1,340 @@
+==============================
+ MODEL: SVM
+ Global Best Params: {'C': 50, 'gamma': 0.01}
+
+--- Subject 1 ---
+  Repetition  1 Test Accuracy:  73.44%
+  Repetition  2 Test Accuracy:  89.24%
+  Repetition  3 Test Accuracy:  94.27%
+  Repetition  4 Test Accuracy:  97.22%
+  Repetition  5 Test Accuracy:  94.44%
+  Repetition  6 Test Accuracy:  93.58%
+  Repetition  7 Test Accuracy:  93.40%
+  Repetition  8 Test Accuracy:  95.49%
+  Repetition  9 Test Accuracy:  93.58%
+  Repetition 10 Test Accuracy:  70.14%
+>> Mean values for Subject 1 | Train: 99.6% | Test: 89.5%
+
+--- Subject 2 ---
+  Repetition  1 Test Accuracy:  69.97%
+  Repetition  2 Test Accuracy:  88.37%
+  Repetition  3 Test Accuracy:  93.06%
+  Repetition  4 Test Accuracy:  93.58%
+  Repetition  5 Test Accuracy:  93.06%
+  Repetition  6 Test Accuracy:  80.73%
+  Repetition  7 Test Accuracy:  77.95%
+  Repetition  8 Test Accuracy:  92.19%
+  Repetition  9 Test Accuracy:  93.92%
+  Repetition 10 Test Accuracy:  28.30%
+>> Mean values for Subject 2 | Train: 99.6% | Test: 81.1%
+
+--- Subject 3 ---
+  Repetition  1 Test Accuracy:  85.59%
+  Repetition  2 Test Accuracy:  86.11%
+  Repetition  3 Test Accuracy:  71.88%
+  Repetition  4 Test Accuracy:  79.86%
+  Repetition  5 Test Accuracy:  64.41%
+  Repetition  6 Test Accuracy:  76.56%
+  Repetition  7 Test Accuracy:  73.61%
+  Repetition  8 Test Accuracy:  78.30%
+  Repetition  9 Test Accuracy:  75.87%
+  Repetition 10 Test Accuracy:  85.24%
+>> Mean values for Subject 3 | Train: 97.4% | Test: 77.7%
+
+--- Subject 4 ---
+  Repetition  1 Test Accuracy:  91.84%
+  Repetition  2 Test Accuracy:  80.38%
+  Repetition  3 Test Accuracy:  90.10%
+  Repetition  4 Test Accuracy:  95.31%
+  Repetition  5 Test Accuracy:  94.44%
+  Repetition  6 Test Accuracy:  89.58%
+  Repetition  7 Test Accuracy:  87.85%
+  Repetition  8 Test Accuracy:  92.53%
+  Repetition  9 Test Accuracy:  81.94%
+  Repetition 10 Test Accuracy:  88.19%
+>> Mean values for Subject 4 | Train: 98.8% | Test: 89.2%
+
+--- Subject 5 ---
+  Repetition  1 Test Accuracy:  89.93%
+  Repetition  2 Test Accuracy:  74.83%
+  Repetition  3 Test Accuracy:  83.33%
+  Repetition  4 Test Accuracy:  89.06%
+  Repetition  5 Test Accuracy:  74.48%
+  Repetition  6 Test Accuracy:  85.76%
+  Repetition  7 Test Accuracy:  93.92%
+  Repetition  8 Test Accuracy:  92.53%
+  Repetition  9 Test Accuracy:  84.55%
+  Repetition 10 Test Accuracy:  87.33%
+>> Mean values for Subject 5 | Train: 99.0% | Test: 85.6%
+
+--- Subject 6 ---
+  Repetition  1 Test Accuracy:  62.67%
+  Repetition  2 Test Accuracy:  58.33%
+  Repetition  3 Test Accuracy:  80.90%
+  Repetition  4 Test Accuracy:  92.36%
+  Repetition  5 Test Accuracy:  88.72%
+  Repetition  6 Test Accuracy:  76.22%
+  Repetition  7 Test Accuracy:  57.29%
+  Repetition  8 Test Accuracy:  75.87%
+  Repetition  9 Test Accuracy:  68.75%
+  Repetition 10 Test Accuracy:  76.91%
+>> Mean values for Subject 6 | Train: 98.1% | Test: 73.8%
+
+
+==============================
+ MODEL: kNN
+ Global Best Params: {'n_neighbors': 9, 'weights': 'distance'}
+
+--- Subject 1 ---
+  Repetition  1 Test Accuracy:  62.50%
+  Repetition  2 Test Accuracy:  71.35%
+  Repetition  3 Test Accuracy:  81.25%
+  Repetition  4 Test Accuracy:  86.81%
+  Repetition  5 Test Accuracy:  84.72%
+  Repetition  6 Test Accuracy:  86.98%
+  Repetition  7 Test Accuracy:  79.69%
+  Repetition  8 Test Accuracy:  89.41%
+  Repetition  9 Test Accuracy:  86.46%
+  Repetition 10 Test Accuracy:  68.40%
+>> Mean values for Subject 1 | Train: 100.0% | Test: 79.8%
+
+--- Subject 2 ---
+  Repetition  1 Test Accuracy:  38.72%
+  Repetition  2 Test Accuracy:  59.55%
+  Repetition  3 Test Accuracy:  60.07%
+  Repetition  4 Test Accuracy:  63.89%
+  Repetition  5 Test Accuracy:  65.10%
+  Repetition  6 Test Accuracy:  56.08%
+  Repetition  7 Test Accuracy:  55.38%
+  Repetition  8 Test Accuracy:  56.94%
+  Repetition  9 Test Accuracy:  65.45%
+  Repetition 10 Test Accuracy:  28.65%
+>> Mean values for Subject 2 | Train: 100.0% | Test: 55.0%
+
+--- Subject 3 ---
+  Repetition  1 Test Accuracy:  62.50%
+  Repetition  2 Test Accuracy:  72.05%
+  Repetition  3 Test Accuracy:  54.51%
+  Repetition  4 Test Accuracy:  62.33%
+  Repetition  5 Test Accuracy:  54.17%
+  Repetition  6 Test Accuracy:  62.33%
+  Repetition  7 Test Accuracy:  63.37%
+  Repetition  8 Test Accuracy:  63.89%
+  Repetition  9 Test Accuracy:  58.68%
+  Repetition 10 Test Accuracy:  70.83%
+>> Mean values for Subject 3 | Train: 100.0% | Test: 62.5%
+
+--- Subject 4 ---
+  Repetition  1 Test Accuracy:  74.65%
+  Repetition  2 Test Accuracy:  68.23%
+  Repetition  3 Test Accuracy:  82.64%
+  Repetition  4 Test Accuracy:  85.59%
+  Repetition  5 Test Accuracy:  80.90%
+  Repetition  6 Test Accuracy:  82.47%
+  Repetition  7 Test Accuracy:  84.20%
+  Repetition  8 Test Accuracy:  79.17%
+  Repetition  9 Test Accuracy:  78.12%
+  Repetition 10 Test Accuracy:  75.52%
+>> Mean values for Subject 4 | Train: 100.0% | Test: 79.1%
+
+--- Subject 5 ---
+  Repetition  1 Test Accuracy:  72.92%
+  Repetition  2 Test Accuracy:  62.85%
+  Repetition  3 Test Accuracy:  67.71%
+  Repetition  4 Test Accuracy:  68.92%
+  Repetition  5 Test Accuracy:  48.78%
+  Repetition  6 Test Accuracy:  71.70%
+  Repetition  7 Test Accuracy:  74.13%
+  Repetition  8 Test Accuracy:  76.22%
+  Repetition  9 Test Accuracy:  63.02%
+  Repetition 10 Test Accuracy:  64.06%
+>> Mean values for Subject 5 | Train: 100.0% | Test: 67.0%
+
+--- Subject 6 ---
+  Repetition  1 Test Accuracy:  55.90%
+  Repetition  2 Test Accuracy:  47.40%
+  Repetition  3 Test Accuracy:  80.56%
+  Repetition  4 Test Accuracy:  70.83%
+  Repetition  5 Test Accuracy:  74.83%
+  Repetition  6 Test Accuracy:  70.31%
+  Repetition  7 Test Accuracy:  49.83%
+  Repetition  8 Test Accuracy:  55.73%
+  Repetition  9 Test Accuracy:  53.12%
+  Repetition 10 Test Accuracy:  52.78%
+>> Mean values for Subject 6 | Train: 100.0% | Test: 61.1%
+
+
+==============================
+ MODEL: RF
+ Global Best Params: {'max_depth': 20, 'n_estimators': 100}
+
+--- Subject 1 ---
+  Repetition  1 Test Accuracy:  73.78%
+  Repetition  2 Test Accuracy:  84.38%
+  Repetition  3 Test Accuracy:  91.15%
+  Repetition  4 Test Accuracy:  94.27%
+  Repetition  5 Test Accuracy:  91.49%
+  Repetition  6 Test Accuracy:  92.71%
+  Repetition  7 Test Accuracy:  92.36%
+  Repetition  8 Test Accuracy:  96.01%
+  Repetition  9 Test Accuracy:  90.97%
+  Repetition 10 Test Accuracy:  66.49%
+>> Mean values for Subject 1 | Train: 100.0% | Test: 87.4%
+
+--- Subject 2 ---
+  Repetition  1 Test Accuracy:  66.67%
+  Repetition  2 Test Accuracy:  86.81%
+  Repetition  3 Test Accuracy:  87.50%
+  Repetition  4 Test Accuracy:  92.36%
+  Repetition  5 Test Accuracy:  93.58%
+  Repetition  6 Test Accuracy:  77.08%
+  Repetition  7 Test Accuracy:  86.28%
+  Repetition  8 Test Accuracy:  93.23%
+  Repetition  9 Test Accuracy:  95.31%
+  Repetition 10 Test Accuracy:  31.08%
+>> Mean values for Subject 2 | Train: 100.0% | Test: 81.0%
+
+--- Subject 3 ---
+  Repetition  1 Test Accuracy:  84.03%
+  Repetition  2 Test Accuracy:  82.64%
+  Repetition  3 Test Accuracy:  66.49%
+  Repetition  4 Test Accuracy:  74.31%
+  Repetition  5 Test Accuracy:  60.94%
+  Repetition  6 Test Accuracy:  73.09%
+  Repetition  7 Test Accuracy:  72.92%
+  Repetition  8 Test Accuracy:  78.47%
+  Repetition  9 Test Accuracy:  72.40%
+  Repetition 10 Test Accuracy:  84.20%
+>> Mean values for Subject 3 | Train: 100.0% | Test: 74.9%
+
+--- Subject 4 ---
+  Repetition  1 Test Accuracy:  85.07%
+  Repetition  2 Test Accuracy:  80.03%
+  Repetition  3 Test Accuracy:  90.97%
+  Repetition  4 Test Accuracy:  96.01%
+  Repetition  5 Test Accuracy:  83.85%
+  Repetition  6 Test Accuracy:  90.97%
+  Repetition  7 Test Accuracy:  84.20%
+  Repetition  8 Test Accuracy:  92.71%
+  Repetition  9 Test Accuracy:  81.77%
+  Repetition 10 Test Accuracy:  83.16%
+>> Mean values for Subject 4 | Train: 100.0% | Test: 86.9%
+
+--- Subject 5 ---
+  Repetition  1 Test Accuracy:  87.85%
+  Repetition  2 Test Accuracy:  68.92%
+  Repetition  3 Test Accuracy:  86.81%
+  Repetition  4 Test Accuracy:  90.28%
+  Repetition  5 Test Accuracy:  68.23%
+  Repetition  6 Test Accuracy:  86.81%
+  Repetition  7 Test Accuracy:  94.44%
+  Repetition  8 Test Accuracy:  92.36%
+  Repetition  9 Test Accuracy:  88.37%
+  Repetition 10 Test Accuracy:  84.20%
+>> Mean values for Subject 5 | Train: 100.0% | Test: 84.8%
+
+--- Subject 6 ---
+  Repetition  1 Test Accuracy:  60.59%
+  Repetition  2 Test Accuracy:  55.56%
+  Repetition  3 Test Accuracy:  81.77%
+  Repetition  4 Test Accuracy:  90.45%
+  Repetition  5 Test Accuracy:  85.94%
+  Repetition  6 Test Accuracy:  76.56%
+  Repetition  7 Test Accuracy:  55.56%
+  Repetition  8 Test Accuracy:  80.21%
+  Repetition  9 Test Accuracy:  73.44%
+  Repetition 10 Test Accuracy:  75.87%
+>> Mean values for Subject 6 | Train: 100.0% | Test: 73.6%
+
+
+==============================
+ MODEL: LDA
+ Global Best Params: {}
+
+--- Subject 1 ---
+  Repetition  1 Test Accuracy:  64.06%
+  Repetition  2 Test Accuracy:  80.56%
+  Repetition  3 Test Accuracy:  91.84%
+  Repetition  4 Test Accuracy:  95.31%
+  Repetition  5 Test Accuracy:  90.45%
+  Repetition  6 Test Accuracy:  88.54%
+  Repetition  7 Test Accuracy:  86.46%
+  Repetition  8 Test Accuracy:  92.01%
+  Repetition  9 Test Accuracy:  88.02%
+  Repetition 10 Test Accuracy:  73.96%
+>> Mean values for Subject 1 | Train: 90.0% | Test: 85.1%
+
+--- Subject 2 ---
+  Repetition  1 Test Accuracy:  65.97%
+  Repetition  2 Test Accuracy:  80.21%
+  Repetition  3 Test Accuracy:  89.24%
+  Repetition  4 Test Accuracy:  86.28%
+  Repetition  5 Test Accuracy:  88.02%
+  Repetition  6 Test Accuracy:  75.52%
+  Repetition  7 Test Accuracy:  75.35%
+  Repetition  8 Test Accuracy:  79.86%
+  Repetition  9 Test Accuracy:  87.33%
+  Repetition 10 Test Accuracy:  35.07%
+>> Mean values for Subject 2 | Train: 85.4% | Test: 76.3%
+
+--- Subject 3 ---
+  Repetition  1 Test Accuracy:  90.62%
+  Repetition  2 Test Accuracy:  84.20%
+  Repetition  3 Test Accuracy:  60.24%
+  Repetition  4 Test Accuracy:  78.82%
+  Repetition  5 Test Accuracy:  59.20%
+  Repetition  6 Test Accuracy:  64.41%
+  Repetition  7 Test Accuracy:  68.06%
+  Repetition  8 Test Accuracy:  81.77%
+  Repetition  9 Test Accuracy:  68.06%
+  Repetition 10 Test Accuracy:  83.51%
+>> Mean values for Subject 3 | Train: 79.8% | Test: 73.9%
+
+--- Subject 4 ---
+  Repetition  1 Test Accuracy:  84.20%
+  Repetition  2 Test Accuracy:  77.78%
+  Repetition  3 Test Accuracy:  80.90%
+  Repetition  4 Test Accuracy:  89.93%
+  Repetition  5 Test Accuracy:  86.63%
+  Repetition  6 Test Accuracy:  86.28%
+  Repetition  7 Test Accuracy:  82.99%
+  Repetition  8 Test Accuracy:  80.03%
+  Repetition  9 Test Accuracy:  89.06%
+  Repetition 10 Test Accuracy:  88.37%
+>> Mean values for Subject 4 | Train: 87.6% | Test: 84.6%
+
+--- Subject 5 ---
+  Repetition  1 Test Accuracy:  83.33%
+  Repetition  2 Test Accuracy:  78.82%
+  Repetition  3 Test Accuracy:  73.26%
+  Repetition  4 Test Accuracy:  81.60%
+  Repetition  5 Test Accuracy:  66.49%
+  Repetition  6 Test Accuracy:  77.26%
+  Repetition  7 Test Accuracy:  93.40%
+  Repetition  8 Test Accuracy:  85.07%
+  Repetition  9 Test Accuracy:  74.83%
+  Repetition 10 Test Accuracy:  85.24%
+>> Mean values for Subject 5 | Train: 86.8% | Test: 79.9%
+
+--- Subject 6 ---
+  Repetition  1 Test Accuracy:  64.76%
+  Repetition  2 Test Accuracy:  56.25%
+  Repetition  3 Test Accuracy:  81.77%
+  Repetition  4 Test Accuracy:  84.55%
+  Repetition  5 Test Accuracy:  92.01%
+  Repetition  6 Test Accuracy:  80.56%
+  Repetition  7 Test Accuracy:  57.29%
+  Repetition  8 Test Accuracy:  53.65%
+  Repetition  9 Test Accuracy:  69.10%
+  Repetition 10 Test Accuracy:  82.81%
+>> Mean values for Subject 6 | Train: 80.7% | Test: 72.3%
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Model        | LORO Train   | LORO Test    | Params
+------------------------------------------------------------------------------------------
+SVM          |      98.77% |      82.82% | {'C': 50, 'gamma': 0.01}
+kNN          |     100.00% |      67.42% | {'n_neighbors': 9, 'weights': 'distance'}
+RF           |     100.00% |      81.43% | {'max_depth': 20, 'n_estimators': 100}
+LDA          |      85.06% |      78.69% | {}
 
