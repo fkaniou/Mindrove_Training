@@ -62,6 +62,8 @@ for subj in subjects:
         
         final_x = np.concatenate(x_rep)
         final_y = np.concatenate(y_rep)
+        
+        
         data_storage[subj][rep_num]['x'] = final_x
         data_storage[subj][rep_num]['y'] = final_y
 
@@ -93,23 +95,26 @@ models_to_test = [
 final_summary = []
 
 for m_info in models_to_test:
-    print(f"\n{'='*20} Analysis: {m_info['name']} {'='*20}")
+    print(f"\n{'='*30}")
+    print(f" MODEL: {m_info['name']}")
     
+    # Global Grid Search
     grid = GridSearchCV(m_info['est'], m_info['params'], cv=ps, n_jobs=-1)
     grid.fit(X_grid, Y_grid)
     best_p = grid.best_params_
-    print(f"Global Best Params: {best_p}")
+    print(f" Global Best Params: {best_p}\n")
 
     all_subj_train_accs, all_subj_test_accs = [], []
 
     for subj in subjects:
+        print(f"--- Subject {subj} ---")
         subj_rep_train, subj_rep_test = [], []
         
         for out_rep in reps:
             x_train = np.concatenate([data_storage[subj][r]['x'] for r in reps if r != out_rep])
             y_train = np.concatenate([data_storage[subj][r]['y'] for r in reps if r != out_rep])
             x_test = data_storage[subj][out_rep]['x']
-            y_test = data_storage[subj][out_rep]['y']           
+            y_test = data_storage[subj][out_rep]['y']          
            
             sc = StandardScaler()
             x_train_sc = sc.fit_transform(x_train)
@@ -118,12 +123,17 @@ for m_info in models_to_test:
             clf = m_info['est'].set_params(**best_p)
             clf.fit(x_train_sc, y_train)
             
-            subj_rep_train.append(clf.score(x_train_sc, y_train))
-            subj_rep_test.append(clf.score(x_test_sc, y_test))
+            tr_acc = clf.score(x_train_sc, y_train)
+            te_acc = clf.score(x_test_sc, y_test)
+            
+            subj_rep_train.append(tr_acc)
+            subj_rep_test.append(te_acc)
+            
+            print(f"  Repetition {out_rep:2} Test Accuracy: {te_acc*100:6.2f}%")
             
         avg_tr = np.mean(subj_rep_train)
         avg_te = np.mean(subj_rep_test)
-        print(f"Subject {subj} | Avg Train: {avg_tr*100:.1f}% | Avg LORO Test: {avg_te*100:.1f}%")
+        print(f">> Mean values for Subject {subj} | Train: {avg_tr*100:.1f}% | Test: {avg_te*100:.1f}%\n")
         
         all_subj_train_accs.append(avg_tr)
         all_subj_test_accs.append(avg_te)
@@ -134,8 +144,8 @@ for m_info in models_to_test:
         'Global LORO Train': np.mean(all_subj_train_accs),
         'Global LORO Test': np.mean(all_subj_test_accs)
     })
-
-print("\n" + "!"*40)
+    
+print("\n" + "!"*50)
 print(f"{'Model':<12} | {'LORO Train':<12} | {'LORO Test':<12} | {'Params'}")
 print("-" * 90)
 for r in final_summary:
